@@ -3,18 +3,18 @@ use TravelCompany;
 
 create table if not exists Passenger(
 	Passenger_name varchar(50),
-    category varchar(10),
-    Gender varchar(5),
-    Boarding_city varchar(50),
-    Destination_city varchar(50),
-    Distance int,
-    Bus_type varchar(10)
+    	category varchar(10),
+    	Gender varchar(5),
+    	Boarding_city varchar(50),
+    	Destination_city varchar(50),
+    	Distance int,
+    	Bus_type varchar(10)
        );
    
 create table if not exists price(
 	Bus_type varchar(10),
-    distance int,
-    price int);
+    	distance int,
+    	price int);
 
 insert into passenger values ( 'Sejal', 'AC', 'F', 'Bengaluru', 'Chennai', 350, 'Sleeper');
 insert into passenger values ('Anmol', 'Non-AC', 'M', 'Mumbai', 'Hyderabad', 700, 'Sitting');
@@ -69,9 +69,7 @@ select passenger_name,  Boarding_city, destination_city, p2.bus_type, p2.price
 #8) What will be the Sitting and Sleeper bus charge for Pallavi to travel from Bangalore to Panaji?    
     
 select bus_type, price from price 
-    where distance = (select distance from passenger
-							where Boarding_City = 'panaji'AND Destination_City = 'bengaluru'
-                            AND Passenger_name = 'Pallavi');
+    where distance = (select distance from passenger where Boarding_City = 'panaji'AND Destination_City = 'bengaluru' AND Passenger_name = 'Pallavi');
     
     
 #9) List the distances from the "Passenger" table which are unique (non-repeated distances) in descending order.    
